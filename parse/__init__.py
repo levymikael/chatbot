@@ -5,10 +5,21 @@ animal_words_list = ["animal", "animals", "dog", "cat", "pet", "puppy"]
 swear_words_list = ["arse","ass","asshole",",bastard","bitch","bollocks","child-fucker","Christ on a bike","Christ on a cracker","crap",\
                     "cunt","damn","frigger","fuck", "fuck you","goddamn","godsdamn","hell","holy shit","horseshit","Jesus Christ","Jesus fuck","Jesus H. Christ",\
                     "Jesus Harold Christ,","Jesus wept","Jesus, Mary and Joseph","Judas Priest","motherfucker","nigga","nigger","prick","shit",\
-                    "shit ass","shitass","slut","son of a bitch","son of a motherless goat","son of a whore","sweet Jesus","twat"]
+                    "shit ass","shitass","slut","son of a bitch","son of a motherless goat","son of a whore","sweet Jesus","twat", "whore"]
 
 afraid_words_list = ['threaten', "cut", 'behead', "kill"]
 
+sad_words_list = ['sad', "bad news", "lost", "loss"]
+
+bored_words_list = ['boring', "bored"]
+
+heartbroke_words_list = ['over', "hate", "finish"]
+
+money_words_list = ['money', "finance", "financial", "economy", "economic"]
+
+takeoff_words_list = ['bye', "goodbye", "see you", 'have a great day']
+
+waiting_words = ["euhh", 'eee']
 
 jokes_list = ["What did the Buddhist ask the hot dog vendor? - Make me one with everything.",
               " You know why you never see elephants hiding up in trees? - Because they’re really good at it.",
@@ -35,7 +46,6 @@ def welcome_user(input_list):
 
 
 
-
 def analize(input):
     gif_name = ""
     return_message = ""
@@ -44,7 +54,7 @@ def analize(input):
         print(input_list)
         if "name" in input_list and "is" in input_list:
             return_message = welcome_user(input_list)
-            gif_name = "excited"
+            gif_name = "ok"
         elif input_list[index] == "love":
             return_message = "Let's spread love together"
             gif_name = "inlove"
@@ -60,10 +70,33 @@ def analize(input):
         elif input_list[index] == "joke":
             return_message = random.choice(jokes_list)
             gif_name = "laughing"
-        elif "boring" in input_list and "bored in" in input_list:
+        elif input_list[index] in bored_words_list:
             return_message = "I want to sleep, you're so annoying!"
             gif_name = "bored"
-
+        elif any(word in input_list for word in sad_words_list):
+            return_message = "Don't announce me things like that, I am hyper sensitive"
+            gif_name = "bored"
+        elif input_list[index] == "Do you know how to dance ?":
+            return_message = "Do you know how to dance ?"
+            gif_name = "dancing"
+        elif input_list[index] == "excite":
+            return_message = "Please tell me !"
+            gif_name = "excited"
+        elif input_list[index] == "guess":
+            return_message = "Please tell me !"
+            gif_name = "giggling"
+        elif any(word in input_list for word in heartbroke_words_list):
+            return_message = "I cannot handle it, it's too much for me!"
+            gif_name = "heartbroke"
+        elif any(word in input_list for word in money_words_list):
+            return_message = "Make money money money"
+            gif_name = "money"
+        elif any(word in input_list for word in takeoff_words_list):
+            return_message = "It was great talking with you !"
+            gif_name = "takeoff"
+        elif  any(word in input_list for word in waiting_words ):
+            return_message = "Why does it take so long to answer?"
+            gif_name = "waiting"
         else:
             return_message = "Sorry, I didn't understand what you just typed, please try again !"
             gif_name = "confused"
