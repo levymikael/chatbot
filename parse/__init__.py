@@ -51,7 +51,6 @@ def analize(input):
     return_message = ""
     input_list = input_to_list(input)
     for index, word in enumerate(input_list):
-        print(input_list)
         if "name" in input_list and "is" in input_list:
             return_message = welcome_user(input_list)
             gif_name = "ok"
